@@ -1,17 +1,17 @@
 <
-Take user-input file-names
-file_in = input("\nEnter timesheet file name: ")	# Input File file_out = input("Enter name for report file: ")	# Output File
+Take user-input file-names 
+file_in = input("\nEnter timesheet file name: ")	# Input File file_out = input("Enter name for report file: ")	# Output File >
+  
+
+< # Open input and output files file = open(file_in)
+out = open(file_out,'w') >
 
 
-# Open input and output files file = open(file_in)
-out = open(file_out,'w')
+< # Read lines from input file lines = file.readlines() >
+ 
+< # Variable to hold weekly sum weekly = 0 >
 
-
-# Read lines from input file lines = file.readlines()
-
-# Variable to hold weekly sum weekly = 0
-
-# Get each row from input file for line in lines:
+< # Get each row from input file for line in lines:
 
 # Variable to hold total hours worked (each day) total = 0
 
