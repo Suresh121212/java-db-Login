@@ -1,25 +1,38 @@
-Dates:
-<time datetime="1914"> <!-- means the year 1914 -->
-<time datetime="1914-12"> <!-- means December 1914 -->
-<time datetime="1914-12-20"> <!-- means 20 December 1914 -->
-<time datetime="12-20"> <!-- means 20 December any year -->
-<time datetime="1914-W15"> <!-- means week 15 of year 1914 -->
+Take user-input file-names
+file_in = input("\nEnter timesheet file name: ")	# Input File file_out = input("Enter name for report file: ")	# Output File
+
+<
+# Open input and output files file = open(file_in)
+out = open(file_out,'w')
 
 
-Date and Times:
-<time datetime="1914-12-20T08:00"> <!-- means 20 December 1914 at 8am -->
-<time datetime="1914-12-20 08:00"> <!-- also means 20 December 1914 at 8am -->
-<time datetime="1914-12-20 08:30:45"> <!-- with minutes and seconds -->
-<time datetime="1914-12-20 08:30:45.687"> <!-- with minutes, seconds, and milliseconds --
->
+# Read lines from input file lines = file.readlines()
+
+# Variable to hold weekly sum weekly = 0
+
+# Get each row from input file for line in lines:
+
+# Variable to hold total hours worked (each day) total = 0
 
 
-Times:
-<time datetime="08:00"> <!-- means 8am -->
-<time datetime="08:00-03:00"> <!-- means 8am in Rio de Janeiro (UTC-3 hours) -->
-<time datetime="08:00+03:00"> <!-- means 8am in Madagascar (UTC+3 hours) -->
+# Split each hour by space hours = line.strip().split()
+
+# Get each time value in float type # Maintain running sum
+for time in hours:
+time = float(time[:len(time)-1]) total += time
+
+# Output total time out.write('{:.2f}h |'.format(total))
+
+# Add total for 1 day in weekly total weekly += total
+
+# Output hours for time in hours:
+time = float(time[:len(time)-1]) out.write(' {:.2f}h'.format(time))
+out.write('\n')
 
 
-Durations:
-<time datetime="P2D"> <!-- means a duration of 2 days -->
-<time datetime="PT15H10M"> <!-- means a duration of 15 hours and 10 minutes -->
+# Print weekly total
+out.write('\nWeekly Total: {:.2f}h'.format(weekly))
+
+
+print("\nDone writing totals to "+file_out) 
+   >
